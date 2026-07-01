@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Permissions for background work -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <!--
          Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
@@ -76,6 +81,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/timetable_widget_info" />
         </receiver>
+
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="shortService"
+            android:exported="false" />
     </application>
 
 </manifest>

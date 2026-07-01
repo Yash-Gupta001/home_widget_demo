@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:widget_app_test/feature/timetable_widget/view/timetable_view.dart';
 import 'package:widget_app_test/feature/example_widget/view/example_widget_controller.dart';
+import 'package:widget_app_test/feature/timetable_widget/controller/timetable_controller.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  print('=== App Starting ===');
+  
+  try {
+    print('Initializing TimetableController...');
+    await TimetableController.initializeWorkManager();
+    print('TimetableController initialized successfully');
+  } catch (e) {
+    print('Error setting up TimetableController: $e');
+  }
+  
+  print('Starting app...');
   runApp(const MyApp());
 }
 

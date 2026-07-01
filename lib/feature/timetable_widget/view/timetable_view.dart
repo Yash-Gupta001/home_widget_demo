@@ -23,6 +23,13 @@ class TimetableView extends StatelessWidget {
             onPressed: controller.manualRefresh,
             tooltip: 'Refresh',
           ),
+          // IconButton(
+          //   icon: const Icon(Icons.bug_report),
+          //   onPressed: () async {
+          //     await TimetableWorker.testWorkManager();
+          //   },
+          //   tooltip: 'Test Widget Update',
+          // ),
         ],
       ),
       body: Center(
@@ -79,7 +86,7 @@ class TimetableView extends StatelessWidget {
                           ),
                           const SizedBox(height: 24),
                           const Text(
-                            'Updates every 20 seconds',
+                            'Updates every 5 seconds when app is open',
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey,
